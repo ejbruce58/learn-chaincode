@@ -74,7 +74,7 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 	// Handle different functions
 	if function == "dummy_query" {											//read a variable
 		fmt.Println("hi there " + function)						//error
-		return nil, nil;
+		return nil, nil
 	}
 	if function == "read" {
 		return t.read(stub,args)
