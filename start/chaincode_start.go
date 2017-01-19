@@ -43,16 +43,18 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 		return nil, errors.New("Incorrect number of arguments. Expecting 1")
 	}
 
-        name, err := os.Hostname()
+        name := os.Args
 
+/*
          if err != nil {
                  panic(err)
          }
+*/
 
-         fmt.Println("Hostname reported by kernel : ", name)
+         fmt.Println("Arguments reported: ", name)
 
-//	err := stub.PutState("hello_world",[]byte(args[0]))
-	err = stub.PutState("hello_world",[]byte(args[0]))
+	err := stub.PutState("hello_world",[]byte(args[0]))
+//	err = stub.PutState("hello_world",[]byte(args[0]))
 	if (err != nil) {
 		return nil,err
 	}
