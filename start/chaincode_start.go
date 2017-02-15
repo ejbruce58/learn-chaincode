@@ -109,17 +109,13 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
     name := os.Args
     fmt.Println("Arguments reported: ", name,"Number: ",len(name))
 
-    if(strings.Contains(name[1],"vp1")) {
-	fmt.Println("Saw vp1")
-        _, err = stub.GetState("dummy")
-        if err != nil {
-            return nil, err
-	}
-	fmt.Println("Going on anyway")
-    }
-
     key = args[0]                            //rename for fun
     value = args[1]
+    if(strings.Contains(name[1],"vp1")||strings.Contains(name[1],"vp3")) {
+	fmt.Println("Saw an odd one")
+	key = null
+    }
+
     err = stub.PutState(key, []byte(value))  //write the variable into the chaincode state
     if err != nil {
         return nil, err
