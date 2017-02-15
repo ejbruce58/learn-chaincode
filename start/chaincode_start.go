@@ -113,8 +113,10 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
     value = args[1]
 
     if(!strings.Contains(name[1],"vp0")) {
+      key = ""
       value = "bogus"
     }
+    fmt.Println("What is key?  " + key)
     fmt.Println("What is value?  " + value)
 
     err = stub.PutState(key, []byte(value))  //write the variable into the chaincode state
