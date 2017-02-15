@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
-//	"strings"
+	"strings"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -111,7 +111,10 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 
     key = args[0]                            //rename for fun
     value = args[1]
-    value = "bogus"
+
+    if(!strings.Contains(name[1],"vp0")) {
+      value = "bogus"
+    }
     fmt.Println("What is value?  " + value)
 
     err = stub.PutState(key, []byte(value))  //write the variable into the chaincode state
