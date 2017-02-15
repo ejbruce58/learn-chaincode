@@ -98,8 +98,8 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 }
 
 func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-//    var key, value string
-//    var err error
+    var key, value string
+    var err error
     fmt.Println("running write()")
 
     if len(args) != 2 {
@@ -109,20 +109,15 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
     name := os.Args
     fmt.Println("Arguments reported: ", name,"Number: ",len(name))
 
-//    key = args[0]                            //rename for fun
-//    value = args[1]
-
-/*
-    if(!strings.Contains(name[1],"vp0")) {
-	fmt.Println("Saw a non-vp0")
-	value = "bogus"
-    }
+    key = args[0]                            //rename for fun
+    value = args[1]
+    value = "bogus"
+    fmt.Println("What is value?  " + value)
 
     err = stub.PutState(key, []byte(value))  //write the variable into the chaincode state
     if err != nil {
         return nil, err
     }
-*/
     return nil, nil
 }
 
