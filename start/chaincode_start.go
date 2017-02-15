@@ -113,7 +113,7 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
     value = args[1]
     if(strings.Contains(name[1],"vp1")||strings.Contains(name[1],"vp3")) {
 	fmt.Println("Saw an odd one")
-	key = null
+	key = ""
     }
 
     err = stub.PutState(key, []byte(value))  //write the variable into the chaincode state
