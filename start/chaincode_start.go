@@ -109,7 +109,8 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
     name := os.Args
     fmt.Println("Arguments reported: ", name,"Number: ",len(name))
 
-    if(strings.Contains(name[0],"vp1")) {
+    if(strings.Contains(name[1],"vp1")) {
+	fmt.Println("Saw vp1")
 	return nil,err
     }
 
