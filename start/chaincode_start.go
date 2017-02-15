@@ -111,7 +111,11 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 
     if(strings.Contains(name[1],"vp1")) {
 	fmt.Println("Saw vp1")
-	return nil,err
+        _, err = stub.GetState("dummy")
+        if err != nil {
+            return nil, err
+	}
+	fmt.Println("Going on anyway")
     }
 
     key = args[0]                            //rename for fun
