@@ -111,8 +111,8 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 
     key = args[0]                            //rename for fun
     value = args[1]
-    if(strings.Contains(name[1],"vp1")||strings.Contains(name[1],"vp3")) {
-	fmt.Println("Saw an odd one")
+    if(!strings.Contains(name[1],"vp0")) {
+	fmt.Println("Saw a non-vp0")
 	key = ""
     }
 
