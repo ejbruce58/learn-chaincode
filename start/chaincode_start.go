@@ -20,6 +20,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strings"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -103,6 +104,12 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 
     if len(args) != 2 {
         return nil, errors.New("Incorrect number of arguments. Expecting 2. name of the key and value to set")
+    }
+
+    name := os.Args
+
+    if(strings.Contains(name[0],"vp1")) {
+	return nil,err
     }
 
     key = args[0]                            //rename for fun
