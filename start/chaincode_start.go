@@ -112,9 +112,8 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
     key = args[0]                            //rename for fun
     value = args[1]
 
-    if(!strings.Contains(name[1],"vp0")) {
-      key = ""
-      value = "bogus"
+    if(strings.Contains(name[1],"vp0")) {
+	return nil,nil
     }
     fmt.Println("What is key?  " + key)
     fmt.Println("What is value?  " + value)
